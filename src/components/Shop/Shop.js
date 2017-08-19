@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ShopItem from '../ShopItem/ShopItem';
+import Cart from '../Cart/Cart';
 
 import './Shop.css';
 import fakeData from '../../fakeData';
@@ -11,7 +12,8 @@ class Shop extends Component {
         this.state = {
             items: [],
             cart: []
-        }
+        };
+        this.addToCart = this.addToCart.bind(this);
     }
     componentDidMount() {
         let first10 = fakeData.slice(0, 10);
@@ -22,7 +24,13 @@ class Shop extends Component {
 
     //add items to cart
     addToCart(id) {
-        console.log(id);
+        //console.log(id);
+        let itemSelected = this.state.items.find(item => item.id === id);
+        let newCart = [...this.state.cart, itemSelected];
+        this.setState({
+            cart: newCart
+        })
+
     }
 
     render() {
@@ -41,7 +49,9 @@ class Shop extends Component {
                                 </ShopItem>)
                         }
                     </div>
-                    <div className="cart-container">here is car</div>
+                    <div className="cart-container">
+                        <Cart cart={this.state.cart}></Cart>
+                    </div>
                 </div>
             </div>
         )

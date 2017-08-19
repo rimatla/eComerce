@@ -11,7 +11,7 @@ class ShopItem extends Component {
         return (
             <div className="item">
                 <div>
-                    <img src={item.img} alt="Items Image"/>
+                    <img src={item.img} alt="Items"/>
                 </div>
                 <div>
                     <h4 className="item-header">{item.name}</h4>
