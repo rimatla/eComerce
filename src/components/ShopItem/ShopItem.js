@@ -7,6 +7,7 @@ class ShopItem extends Component {
     render() {
         //console.log(this.props.item);
         const item = this.props.item;
+
         return (
             <div className="item">
                 <div>
@@ -19,7 +20,7 @@ class ShopItem extends Component {
                         <div>
                             <p>${item.price}</p>
                             <p><small>Only {item.stock} left in stock</small></p>
-                            <button>add to cart</button>
+                            <button onClick={() => this.props.addToCart(item.id)}>add to cart</button>
                         </div>
                         <div>
                             <Rating

@@ -9,7 +9,8 @@ class Shop extends Component {
     constructor() {
         super();
         this.state = {
-            items: []
+            items: [],
+            cart: []
         }
     }
     componentDidMount() {
@@ -18,6 +19,12 @@ class Shop extends Component {
             items: first10
         })
     }
+
+    //add items to cart
+    addToCart(id) {
+        console.log(id);
+    }
+
     render() {
         return (
             <div>
@@ -25,7 +32,13 @@ class Shop extends Component {
                     <div className="items-container">
                         {this.state.items
                             //add unique key id
-                            .map(item => <ShopItem key={item.id} item={item}></ShopItem>)
+                            .map(item =>
+                                <ShopItem
+                                    key={item.id}
+                                    item={item}
+                                    addToCart={this.addToCart}
+                                >
+                                </ShopItem>)
                         }
                     </div>
                     <div className="cart-container">here is car</div>
