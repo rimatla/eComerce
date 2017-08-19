@@ -24,7 +24,8 @@ class Shop extends Component {
                 <div className="shop-container">
                     <div className="items-container">
                         {this.state.items
-                            .map(item => <ShopItem item={item}></ShopItem>)
+                            //add unique key id
+                            .map(item => <ShopItem key={item.id} item={item}></ShopItem>)
                         }
                     </div>
                     <div className="cart-container">here is car</div>
